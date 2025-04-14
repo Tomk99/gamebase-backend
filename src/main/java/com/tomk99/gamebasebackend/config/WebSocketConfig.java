@@ -2,7 +2,7 @@ package com.tomk99.gamebasebackend.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tomk99.gamebasebackend.handler.GameWebSocketHandler;
-import com.tomk99.gamebasebackend.service.GameService; // GameService importálása
+import com.tomk99.gamebasebackend.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

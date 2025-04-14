@@ -13,19 +13,18 @@ public class GameState {
     private String[][] board;
     private WebSocketSession playerX;
     private WebSocketSession playerO;
-    private String currentPlayer; // 'X' vagy 'O'
+    private String currentPlayer;
     private boolean started;
     private boolean gameOver;
-    private String winner; // 'X', 'O', 'draw' vagy null
+    private String winner;
     private List<Map<String, Integer>> winningLine;
 
     public GameState(String gameId, int boardSize) {
         this.gameId = gameId;
         this.boardSize = boardSize;
-        resetBoardAndStatus(); // Kezdeti inicializálás
+        resetBoardAndStatus();
     }
 
-    // --- Getterek és Setterek ---
     public String getGameId() {
         return gameId;
     }
@@ -47,7 +46,6 @@ public class GameState {
     public List<Map<String, Integer>> getWinningLine() { return winningLine; }
     public void setWinningLine(List<Map<String, Integer>> winningLine) { this.winningLine = winningLine; }
 
-    // --- Segédfüggvények ---
     public boolean isFull() {
         return playerX != null && playerO != null;
     }
@@ -64,15 +62,11 @@ public class GameState {
         return null;
     }
 
-    // Visszaállítja a táblát és a játék állapotát (de a játékosokat nem nullázza)
     public void resetBoardAndStatus() {
         this.board = new String[boardSize][boardSize];
-        // Opcionális: null-lal töltés expliciten (Java alapból megteszi)
-        // for (int i = 0; i < boardSize; i++) { Arrays.fill(board[i], null); }
-        this.currentPlayer = "X"; // X kezd
+        this.currentPlayer = "X";
         this.gameOver = false;
         this.winner = null;
         this.winningLine = null;
-        // A 'started' állapotot a GameService kezeli majd
     }
 }
